@@ -1,7 +1,3 @@
-// File: newIntArray
-// Created by Abigail Sturgeon on 11/7/2017 for CS1410.
-// Copyright (c) 2017 WSU
-
 #include <iostream>
 
 using namespace std;
@@ -10,6 +6,7 @@ int main()
 {
     double sum;
     int size = 0;
+
     // 1) Capture input
     cout << "How many numbers do you want to store?";
     cin >> size;

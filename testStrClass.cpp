@@ -11,8 +11,7 @@ int main()
 {
     myString s1 = "Who knows nothing doubts nothing";
 
-    cout << "S1 = ";
-    s1.display();
+    cout << "S1 = "; s1.display();
 
     s1.updateString("Now this is what I call music");
     cout << "Now s1 = "; s1.display();

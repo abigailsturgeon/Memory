@@ -5,5 +5,6 @@ set(CMAKE_CXX_STANDARD 11)
 
 #set(SOURCE_FILES dynamicMem.cpp)
 #set(SOURCE_FILES testStrClass.cpp myString.cpp myString.h)
-set(SOURCE_FILES dynamicIntArray.cpp)
+set(SOURCE_FILES exception1.cpp)
+#set(SOURCE_FILES dynamicIntArray.cpp)
 add_executable(Memory ${SOURCE_FILES})

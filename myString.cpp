@@ -16,12 +16,17 @@ myString :: myString(char *s)
     strcpy(str, s);     // Copy argument to new allocated space and save address to str
 }
 
+/*!
+ * Deconstructor to free up added allocated memory
+ */
 myString::~myString()
 {
     cout << "Deleting memory" << endl;
     delete[] str;
 }
-
+/*!
+ * Display the information
+ */
 void myString::display()
 {
     cout << str << endl;
@@ -35,12 +40,12 @@ void myString::display()
  */
 void myString::updateString(char *newStr)
 {
-    int lengt = strlen(newStr);
+    int length = strlen(newStr);     // Length of input string
 
     // Allocate new memory
-    char *temp = new char [lengt + 1];
+    char *temp = new char [length + 1];
 
-    strcpy(temp, newStr);
+    strcpy(temp, newStr);   // Copy argument to new allocated memory
 
     // Delete old string
     cout << "Deleting old memory" << endl;
