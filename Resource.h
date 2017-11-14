@@ -14,6 +14,7 @@ private:
 public:
     Resource(string n);
     ~Resource();
+    string getName() const;
 };
 
 

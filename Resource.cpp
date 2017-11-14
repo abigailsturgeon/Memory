@@ -7,10 +7,15 @@
 Resource::Resource(string n)
 {
     name = n;
-    cout << "Constructing name " << name << endl;
+    cout << "Constructing " << name << endl;
 }
 
 Resource::~Resource()
 {
     cout << "Destructing " << name << endl;
+}
+
+string Resource::getName() const
+{
+    return name;
 }
