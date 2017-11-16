@@ -9,5 +9,7 @@ set(CMAKE_CXX_STANDARD 11)
 #set(SOURCE_FILES distanceException.cpp Distance.cpp Distance.h Person.cpp Person.h)
 #set(SOURCE_FILES dynamicIntArray.cpp)
 #set(SOURCE_FILES Const.cpp Person.cpp Person.h)
-set(SOURCE_FILES FreeStore.cpp Resource.cpp Resource.h)
+#set(SOURCE_FILES FreeStore.cpp Resource.cpp Resource.h)
+set(SOURCE_FILES memory.cpp Person.cpp Person.h Resource.cpp Resource.h)
+
 add_executable(Memory ${SOURCE_FILES})
