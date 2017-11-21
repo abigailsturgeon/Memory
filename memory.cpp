@@ -16,6 +16,9 @@ int main()
     Person WaldoSr = Waldo;
 
     Waldo = WaldoSr;
+
+    string s1 = Waldo.getResourceName();
+    cout << "\ns1: " << s1 << endl;
     return 0;
 }
 

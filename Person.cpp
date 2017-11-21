@@ -17,7 +17,8 @@ Person::Person(string fn, string ln, int a)
     lastName = ln;
     arNum = a;
     //pResource = NULL;     Prior to C++11
-    pResource = nullptr;
+    // Don't need for smart pointers
+    // pResource = nullptr;
 }
 /*!
  * Destructor
@@ -26,7 +27,9 @@ Person::Person(string fn, string ln, int a)
 Person::~Person()
 {
     // delete [] pResource      // IF pResource points to an array
-    delete pResource;
+    // Don't need with smart pointer because it deletes itself
+    // If using smart pointers you should have NO deletes in your code
+    // delete pResource;
 }
 /*!
  * Get person's name
@@ -92,8 +95,12 @@ void Person::AddResource()
     // We use "new" instead so it lives past the block instead of dying
     // This will survive
     // Pointer to an object of type resource
-    delete pResource;
-    pResource = new Resource("Resource for " + getName());
+    // delete pResource;        // Delete not needed with smart pointers
+
+    pResource.reset();      // Instead of delete, reset
+
+    // pResource = new Resource("Resource for " + getName());
+    pResource = make_shared<Resource>("Resource for " + getName());     // Makes new memory instead of new
 }
 /*!
  * Get first name
@@ -112,31 +119,39 @@ void Person::setFirstName(const string &firstName)
     Person::firstName = firstName;
 }
 /*!
- * Copy constructor
- * @param p: Person object to be copied
+ * Get resource name
+ * @return
  */
-Person::Person(const Person &p)
+string Person::getResourceName() const
 {
-    firstName = p.firstName;
-    lastName = p.lastName;
-    arNum = p.arNum;
-    // Do not copy the reference.
-    // You need to create your own memory. Your own copy.
-    pResource = new Resource(p.pResource->getName());
+    return pResource->getName();
 }
-/*!
- * Operator overload for two objects
- * @param p: object of person argument
- * @return: new object that was assigned
- */
-Person &Person::operator=(const Person &p)
-{
-    firstName = p.firstName;
-    lastName = p.lastName;
-    arNum = p.arNum;
-    // Clear everything first
-    delete pResource;
-    pResource = new Resource(p.pResource->getName());
-
-    return *this;       // Return yourself
-}
+///*!
+// * Copy constructor
+// * @param p: Person object to be copied
+// */
+//Person::Person(const Person &p)
+//{
+//    firstName = p.firstName;
+//    lastName = p.lastName;
+//    arNum = p.arNum;
+//    // Do not copy the reference.
+//    // You need to create your own memory. Your own copy.
+//    pResource = new Resource(p.pResource->getName());
+//}
+///*!
+// * Operator overload for two objects
+// * @param p: object of person argument
+// * @return: new object that was assigned
+// */
+//Person &Person::operator=(const Person &p)
+//{
+//    firstName = p.firstName;
+//    lastName = p.lastName;
+//    arNum = p.arNum;
+//    // Clear everything first
+//    delete pResource;
+//    pResource = new Resource(p.pResource->getName());
+//
+//    return *this;       // Return yourself
+//}

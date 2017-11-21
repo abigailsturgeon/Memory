@@ -6,7 +6,7 @@
 #define MEMORY_PERSON_H
 #include<iostream>
 #include "Resource.h"
-//#include <memory>   // For smart pointers
+#include <memory>   // For smart pointers
 using namespace std;
 
 
@@ -16,10 +16,11 @@ private:
     string firstName;
     string lastName;
     int arNum;
-    Resource *pResource;
+    // Resource *pResource;     // If not using smart pointer
+    shared_ptr<Resource> pResource;     // Declare a share pointer
 public:
     Person(string fn, string ln, int a);
-    Person(const Person &p);
+    // Person(const Person &p);     Copy constructor
     ~Person();
     string getName() const;     // Return first and last name
     // Setter and getter for the arNum
@@ -41,7 +42,9 @@ public:
 
     void AddResource();
 
-    Person& operator = (const Person &p);
+    //Person& operator = (const Person &p);
+
+    string getResourceName() const;
 };
 bool operator < (int n, const Person &p);
 #endif //MEMORY_PERSON_H
