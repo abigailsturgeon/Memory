@@ -10,7 +10,7 @@ int main()
 {
     Person Waldo("Waldo", "Weber", 123);
     Waldo.AddResource();
-    Waldo.setFirstName("Waldo Jr.");
+    //Waldo.setFirstName("Waldo Jr.");
     Waldo.AddResource();
 
     Person WaldoSr = Waldo;

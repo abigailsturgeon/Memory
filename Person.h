@@ -22,20 +22,20 @@ public:
     Person(string fn, string ln, int a);
     // Person(const Person &p);     Copy constructor
     ~Person();
-    string getName() const;     // Return first and last name
+    string getName();     // Return first and last name
     // Setter and getter for the arNum
-    int getArNum() const;
+    int getArNum();
 
     void setArNum(int arNum);
 
-    const string &getFirstName() const;
+    const string &getFirstName();
 
-    void setFirstName(const string &firstName);
+    void setFirstName(string &firstName);
 
     // Operator overload for < and >
-    bool operator <(Person &p) const;
-    bool operator < (int n) const;
-    friend bool operator < (int n, const Person &p);
+    bool operator <(Person &p);
+    bool operator < (int n);
+    friend bool operator < (int n, Person &p);
 
     // These should work with 1) int < person
     // 2) person < int, 3) int > person, 4) person > int
@@ -44,7 +44,7 @@ public:
 
     //Person& operator = (const Person &p);
 
-    string getResourceName() const;
+    string getResourceName();
 };
-bool operator < (int n, const Person &p);
+bool operator < (int n, Person &p);
 #endif //MEMORY_PERSON_H

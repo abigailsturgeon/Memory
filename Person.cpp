@@ -35,7 +35,7 @@ Person::~Person()
  * Get person's name
  * @return: Return person's name
  */
-string Person::getName() const
+string Person::getName()
 {
     return firstName + " " + lastName;
 }
@@ -43,7 +43,7 @@ string Person::getName() const
  * Get arbitrary number
  * @return: Return arbitrary number
  */
-int Person::getArNum() const
+int Person::getArNum()
 {
     return arNum;
 }
@@ -60,7 +60,7 @@ void Person::setArNum(int arNum)
  * @param p: reference to person
  * @return: true or false
  */
-bool Person::operator<(Person &p) const
+bool Person::operator<(Person &p)
 {
     return arNum < p.arNum;
 }
@@ -69,7 +69,7 @@ bool Person::operator<(Person &p) const
  * @param n: integer number
  * @return: true or false
  */
-bool Person::operator<(int n) const
+bool Person::operator<(int n)
 {
     return arNum < n;
 }
@@ -79,7 +79,7 @@ bool Person::operator<(int n) const
  * @param p: reference to person
  * @return: true or false
  */
-bool operator<(int n, const Person &p)
+bool operator<(int n, Person &p)
 {
     return n < p.arNum;
 }
@@ -106,7 +106,7 @@ void Person::AddResource()
  * Get first name
  * @return: first name
  */
-const string &Person::getFirstName() const
+const string &Person::getFirstName()
 {
     return firstName;
 }
@@ -114,7 +114,7 @@ const string &Person::getFirstName() const
  * Set first name
  * @param firstName
  */
-void Person::setFirstName(const string &firstName)
+void Person::setFirstName(string &firstName)
 {
     Person::firstName = firstName;
 }
@@ -122,7 +122,7 @@ void Person::setFirstName(const string &firstName)
  * Get resource name
  * @return
  */
-string Person::getResourceName() const
+string Person::getResourceName()
 {
     return pResource->getName();
 }
